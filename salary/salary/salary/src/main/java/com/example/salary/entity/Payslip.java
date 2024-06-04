@@ -37,7 +37,16 @@ public class Payslip {
     this.grossPay = grossPay;
     calculateNetSalary();
   }
-
+  public void setSalary(Salary salary) {
+        this.salary = salary;
+        updateGrossPayFromSalary();
+    }
+    public void updateGrossPayFromSalary() {
+        if (this.salary != null) {
+            this.grossPay = this.salary.getAmount();
+            calculateNetSalary();
+        }
+    }
     public void calculateNetSalary(){
     this.netPay = this.grossPay - this.deductions;
  }
